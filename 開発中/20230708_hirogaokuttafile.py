@@ -1,7 +1,7 @@
 import tkinter as tk
 import openai
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 def chat_with_gpt(prompt):
     response = openai.Completion.create(
@@ -22,9 +22,11 @@ def send_message():
     message = input_text.get("1.0", tk.END).strip()
     if message:
         response = chat_with_gpt(message)
+        full_response = message + response
         display_message("You: " + message)
-        display_message("AI: " + response)
+        display_message("AI: " + full_response)
         input_text.delete("1.0", tk.END)
+
 
 def display_message(message):
     chat_history.insert(tk.END, message + "\n")
