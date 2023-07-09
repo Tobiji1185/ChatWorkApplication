@@ -1,7 +1,7 @@
 import tkinter as tk
 import openai
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 def chat_with_gpt(prompt):
     response = openai.Completion.create(
@@ -49,3 +49,4 @@ send_button.pack()
 
 # メインループの開始
 window.mainloop()
+
