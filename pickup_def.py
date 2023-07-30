@@ -2,6 +2,7 @@ import tkinter as tk
 import json
 import random
 
+file_path = 'C:/Users/takah/00_開発環境/Github/ChatWorkApplocation/choices.txt'
 
 def read_choices_from_file(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
@@ -19,6 +20,17 @@ def save_response():
 
     with open("responses.json", "w", encoding="utf-8") as json_file:
         json.dump(response_data, json_file, ensure_ascii=False, indent=4)
+        
+def list_response():
+    selected_choice = var.get()
+    list_text = random_choices[selected_choice -1] #選択されて選択肢のテキストを取得
+    response_list = {
+        "question": "こんにちは",
+        "list化": list_text
+    }   
+
+    with open("responses_list.json", "w", encoding="utf-8") as json_file:
+        json.dump(response_list, json_file, ensure_ascii=False, indent=4)
 
 app = tk.Tk()
 app.title("回答を保存するアプリ")
